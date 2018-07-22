@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Header Image Elector
-Plugin URI: https://matt.thiessen.us/
+Plugin URI: https://github.com/stillatmylinux/header-image-elector
 Description: Modify your header image
 Text Domain: header-image-elector
 Domain Path: /languages
@@ -15,8 +15,12 @@ class HeaderImageElector {
 
 	public function hooks() {
 		add_filter( 'theme_mod_header_image', array( $this, 'maybe_remove_header_image' ) );
+		
 		add_action( "add_meta_boxes_post", array( $this, 'add_meta_box' ) );
+		add_action( "add_meta_boxes_page", array( $this, 'add_meta_box' ) );
+
 		add_action( "save_post", array( $this, 'save' ), 10, 2 );
+		add_action( "save_page", array( $this, 'save' ), 10, 2 );
 	}
 
 	/**
