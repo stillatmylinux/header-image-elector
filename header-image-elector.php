@@ -76,7 +76,7 @@ class HeaderImageElector {
 		echo '<table id="header-img-elector-options" class="widefat">';
 
 		echo '<tr><td><input type="checkbox" name="'.$meta_key.'" value="1" '.checked( $checked, "1", false ).'></td><td>';
-		echo 'Remove the header image from this post';
+		echo 'Remove the header image from this ' . $post->post_type;
 		echo wp_nonce_field( 'mrhi_text_description', 'mrhi_nonce' ) . '</td></tr>';
 		
 		echo '</table>';
